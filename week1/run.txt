@@ -1,0 +1,17 @@
+- Build và chạy container
+docker compose up -d --build
+docker ps
+
+
+
+- Dừng VNC server trong container 
+    vncserver -kill :1
+
+- Khởi động lại VNC server
+    vncserver :1 -geometry 1280x1080 -depth 24
+
+- Dừng container 
+    docker stop week1-practice-desktop-1
+
+- Start lại từ container
+    docker start week1-practice-desktop-1

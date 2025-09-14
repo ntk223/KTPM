@@ -1,0 +1,77 @@
+
+
+ Các khái niệm cơ bản
+
+ 1. SSH (Secure Shell)
+ - SSH là một giao thức mạng dùng để kết nối an toàn từ xa đến một máy tính (thường là server).
+ Hoạt động trên cổng mặc định 22.
+ - Đặc điểm:
+    - Mã hóa toàn bộ dữ liệu truyền (khác với Telnet truyền plain text).
+    - Dùng để đăng nhập từ xa, copy file (scp, sftp), hoặc chuyển tiếp cổng (port forwarding).
+ Ví dụ:
+  ssh user@192.168.1.10 -p 22
+---
+
+ 2. Docker
+ - Docker là nền tảng container hóa → cho phép đóng gói ứng dụng + môi trường chạy thành container.
+ Container ≠ máy ảo:
+
+   - Container dùng chung kernel hệ điều hành host, nên nhẹ và khởi động nhanh hơn.
+   - Máy ảo có hệ điều hành riêng biệt → nặng hơn.
+ Ưu điểm: portable, dễ deploy, dễ scale.
+
+---
+
+ 3. Docker Compose
+ - Công cụ đi kèm Docker, dùng để quản lý nhiều container thông qua một file `docker-compose.yml`.
+ Thay vì chạy nhiều `docker run`, chỉ cần:
+
+  docker-compose up
+
+ Ví dụ: frontend, backend, database → Compose sẽ khởi động cả 3 container cùng lúc.
+
+---
+
+ 4. Linux, Unix, BSD, nix, macOS
+
+ Unix: Hệ điều hành đời đầu (1969), nền tảng cho nhiều OS sau này.
+ Linux: Hệ điều hành mã nguồn mở, “giống Unix” (Unix-like).
+ BSD (Berkeley Software Distribution): Một nhánh hệ điều hành từ Unix, sinh ra các hệ FreeBSD, OpenBSD, NetBSD.
+ \nix: Cách gọi chung cho các hệ điều hành có "chất Unix" (Unix-like).
+ macOS: Dựa trên Darwin (lõi BSD + Mach kernel) → thuộc họ Unix-like.
+
+---
+
+ 5. Alpine vs Ubuntu
+ - Ubuntu:
+   + Hệ điều hành Linux phổ biến, đầy đủ, dễ dùng, nhiều package.
+   + Image Docker thường nặng (200–300 MB).
+
+ Alpine:
+   - Linux cực nhẹ (chỉ \~5 MB).
+   - Tối ưu cho Docker vì kích thước nhỏ.
+   - Nhưng cài package khó hơn (dùng `apk` thay vì `apt`).
+    => Tùy nhu cầu: dev/test thì Ubuntu tiện, production/container nhỏ thì Alpine.
+
+---
+
+ 6. VNC (Virtual Network Computing)
+ - VNC là giao thức cho phép truy cập desktop (GUI) từ xa qua mạng.
+ - Làm việc ở mức màn hình: gửi hình ảnh màn hình từ server về client, và nhận thao tác chuột/phím từ client gửi lên.
+ - Cổng mặc định: 5900 + N (ví dụ VNC :1 = 5901).
+ - Khác với SSH:
+    + SSH → làm việc dòng lệnh (CLI).
+    + VNC → điều khiển giao diện đồ họa (GUI).
+
+---
+ 
+ Kết luận:
+    - SSH → truy cập dòng lệnh an toàn.
+    - Docker → container hóa ứng dụng.
+    - Docker Compose → quản lý nhiều container.
+    - Linux/Unix/BSD/\nix/macOS → họ hàng hệ điều hành.
+    - Alpine vs Ubuntu → nhẹ vs đầy đủ.
+    - VNC → remote desktop GUI.
+
+---
+
